@@ -59,6 +59,11 @@
 		return 'I can help with meal plans, macros, grocery lists, and tailoring for conditions. Try: "Plan a 1,900 kcal day with 150g protein, dairy-free."';
 	}
 
+	// Register service worker for PWA/offline
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('service-worker.js').catch(() => {});
+	}
+
 	if (form && messages && input) {
 		form.addEventListener('submit', function(e) {
 			e.preventDefault();
